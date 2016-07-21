@@ -49,9 +49,9 @@ module.exports = {
       console.log(body);
 
       var next_move = function(rank){
-  	  	if (rank >= 7) {
+  	  	if (rank >= 3) {
   	  		return 0;
-  	  	} else if (rank >= 2) {
+  	  	} else if (rank >= 1) {
   	  		return 1;
   	  	} else {
   	  		return 2;
@@ -118,7 +118,7 @@ function otherStacks(game_state) {
 // 1-3 for single high cards or two of same suit
 function rank2cards(cards) {
   function faceCard(card) {
-    return card.rank === "K" 
+    return card.rank === "K"
       || card.rank === "Q"
       || card.rank === "J"
       || card.rank === "A";
