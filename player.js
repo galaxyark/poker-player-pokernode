@@ -73,8 +73,33 @@ module.exports = {
   	  var raise = function(game_state, bet) {
   	  	var minRaise = game_state.current_buy_in - game_state.players[game_state.in_action].bet + game_state.minimum_raise;
   	  	console.log("Current bet_size is " + minRaise);
+
+        try {
+          var sz = bet_size(game_state);
+          console.log(sz);
+        }
+        catch (err) {
+          console.log(err);
+        }
+
   	  	bet(minRaise);
   	  };
+
+      var bet_size = function(game_state) {
+        var rank = body.rank;
+
+        var stack = game_state.players[game_state.in_action].stack;
+        var min = game_state.minimum_raise;
+
+        if (stack <= min) { // When we don't have enough to raise, just bet whatever we have.
+          return stack;
+        }
+
+        // cc = c^2
+        var cc = 64.0 / (stack - min);
+
+        return rank ^ 2 / cc + min;
+      };
 
       if (!body) {
         check(game_state, bet);
