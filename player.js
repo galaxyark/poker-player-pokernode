@@ -49,6 +49,10 @@ module.exports = {
       console.log(body);
 
       var next_move = function(rank){
+        var ourCards = this.holdCards(game_state);
+        if (game_state.community_cards.length === 0) {
+          rank = rank2cards(ourCards);
+        }
   	  	if (rank >= 3) {
   	  		return 0;
   	  	} else if (rank >= 1) {
@@ -130,9 +134,9 @@ function rank2cards(cards) {
     if (cards[0].rank == cards[1].rank) {
       // a pair
       if (faceCard(cards[0])) {
-        return 7;
+        return 4;
       } else {
-        return 5;
+        return 3;
       }
     } else {
       var score = 0;
@@ -140,7 +144,7 @@ function rank2cards(cards) {
         score += 1;
       }
       if ( faceCard(cards[0]) || faceCard(cards[1]) ) {
-        score += 2;
+        score += 1;
       }
       if ( parseInt(cards[0].rank) >= 10) {
         score += 1;
