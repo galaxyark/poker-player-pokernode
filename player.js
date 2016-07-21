@@ -2,13 +2,13 @@ module.exports = {
   VERSION: "aggressive pokerNode",
 
   holdCards: function(game_state) {
-    return game_state.players[game_state.in_action].hold_cards;
+    return game_state.players[game_state.in_action].hole_cards;
   },
 
   ranking: [],
 
   getRanking: function(game_state, callback) {
-    var cards = this.holdCards(game_state).hole_cards.concat(game_state.community_cards);
+    var cards = this.holdCards(game_state).concat(game_state.community_cards);
     var request = require('request');
     var self = this;
 
