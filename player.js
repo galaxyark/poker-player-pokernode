@@ -12,7 +12,7 @@ module.exports = {
 
     console.log(cards);
 
-    if (cards.length < 3) {
+    if (cards.length < 5) {
       callback();
     }
 
