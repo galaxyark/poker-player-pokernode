@@ -46,7 +46,7 @@ module.exports = {
 
     this.getRanking(game_state, function(body) {
       console.log('bet');
-      cosnole.log(body);
+      console.log(body);
 
       var next_move = function(rank){
   	  	if (rank >= 7) {
