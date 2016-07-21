@@ -19,10 +19,14 @@ module.exports = {
   //////////////////////
   // PokerNode defined functions:
 
+  // Fang Zhou
   get_ranking: function() {
-    console.log("This function gets ranking.")
+    // Get the ranking of the cards
+    console.log("This function gets ranking.");
+
   },
 
+  // Micheal
   output_gamestate: function(game_state) {
     console.log(
         "round= " + game_state.round,
@@ -34,5 +38,16 @@ module.exports = {
         " current_buy_in= " + game_state.current_buy_in,
         " pot= " + game_state.pot
     );
+  },
+
+  //Yun:
+  next_move: function(){
+
+  },
+
+
+  //Yang
+  betsize: function(game_state, rank){
+
   }
 };
