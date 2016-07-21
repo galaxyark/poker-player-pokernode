@@ -14,6 +14,7 @@ module.exports = {
 
     if (cards.length < 5) {
       callback();
+      return;
     }
 
     var request = require('request');
