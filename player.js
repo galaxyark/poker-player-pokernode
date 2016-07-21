@@ -24,7 +24,7 @@ module.exports = {
 
   bet_request: function(game_state, bet) {
     console.log(
-    "round= " + round,
+    "round= " + game_state.round,
     " bet_index= " + game_state.bet_index,
     " small_blind= " + game_state.small_blind,
     " orbits= " + game_state.orbits,
