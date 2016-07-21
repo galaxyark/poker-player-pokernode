@@ -82,7 +82,9 @@ module.exports = {
 
         }
         catch (err) {
+          console.log("Error !!!")
           console.log(err);
+          bet(minRaise);
         }
 
   	  	//bet(minRaise);
