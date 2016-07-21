@@ -74,6 +74,7 @@ module.exports = {
 
       if (!body) {
         check(game_state, bet);
+        return;
       }
 
       var customRank = next_move(body.rank);
