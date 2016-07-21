@@ -1,5 +1,5 @@
 module.exports = {
-  VERSION: "aggressive pokerNode",
+  VERSION: "pokerNode v1",
 
   holdCards: function(game_state) {
     return game_state.players[game_state.in_action].hole_cards;
@@ -27,11 +27,12 @@ module.exports = {
     }, function(error, response, body) {
       self.ranking = body;
       console.log(body);
-      callback();
+      callback(body);
     });
   },
 
   bet_request: function(game_state, bet) {
+
     console.log(
     "round= " + game_state.round,
     " bet_index= " + game_state.bet_index,
@@ -43,9 +44,46 @@ module.exports = {
     " pot= " + game_state.pot
     );
 
-    this.getRanking(game_state, function() {
+    this.getRanking(game_state, function(body) {
       console.log('bet');
-      bet(game_state.current_buy_in - game_state.players[game_state.in_action].bet);
+      var next_move = function(rank){
+	  	if (rank >= 7) {
+	  		return 0;
+	  	} else if (rank >= 2) {
+	  		return 1;
+	  	} else {
+	  		return 2;
+	  	}
+	  };
+	  var fold = function (bet) {
+	  	bet(0);
+	  };
+
+	  var check = function (game_state, bet) {
+	    bet(game_state.current_buy_in - game_state.players[game_state.in_action].bet);
+	  };
+
+	  var raise = function(game_state, bet) {
+	  	var minRaise = game_state.current_buy_in - game_state.players[game_state.in_action].bet + game_state.minimum_raise;
+	  	console.log("Current bet_size is " + minRaise);
+	  	bet(minRaise);
+	  };
+      var rank = body.rank;
+      var customRank = next_move(rank);
+      console.log("Rank is " + rank + ", Custom ranking is " + customRank);
+      switch(customRank) {
+      	case 0:  // we have good hand
+  			raise(game_state, bet);
+  			break;
+  		case 1:
+  			check(game_state, bet);
+  			break;
+  		case 2:
+  			fold(bet);
+  			break;
+  		default:
+  			fold(bet);
+	  }
     });
   },
 
