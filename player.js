@@ -135,7 +135,7 @@ function rank2cards(cards) {
         return 5;
       }
     } else {
-      var score = 0
+      var score = 0;
       if ( cards[0].suit === cards[1].suit) {
         score += 1;
       }
