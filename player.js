@@ -76,7 +76,7 @@ module.exports = {
 
         try {
           var sz = bet_size(game_state);
-          console.log("/// bet_size:")
+          console.log("/// bet_size:");
           console.log(sz);
           bet(sz);
 
