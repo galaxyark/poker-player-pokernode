@@ -11,6 +11,11 @@ module.exports = {
     var cards = this.holdCards(game_state).concat(game_state.community_cards);
 
     console.log(cards);
+
+    if (cards.length < 3) {
+      callback();
+    }
+
     var request = require('request');
     var self = this;
 
