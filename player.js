@@ -50,4 +50,5 @@ module.exports = {
   bet_size: function(game_state, rank){
 
   }
+
 };
