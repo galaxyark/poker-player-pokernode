@@ -2,3 +2,4 @@ express.pid
 .idea
 node_modules
 npm-debug.log
+tmp
