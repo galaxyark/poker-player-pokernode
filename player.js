@@ -76,6 +76,7 @@ module.exports = {
 
         try {
           var sz = bet_size(game_state);
+          console.log("/// bet_size:")
           console.log(sz);
         }
         catch (err) {
@@ -99,6 +100,7 @@ module.exports = {
         var cc = 64.0 / (stack - min);
 
         return rank ^ 2 / cc + min;
+
       };
 
       if (!body) {
