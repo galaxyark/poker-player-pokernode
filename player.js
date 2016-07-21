@@ -78,12 +78,14 @@ module.exports = {
           var sz = bet_size(game_state);
           console.log("/// bet_size:")
           console.log(sz);
+          bet(sz);
+
         }
         catch (err) {
           console.log(err);
         }
 
-  	  	bet(minRaise);
+  	  	//bet(minRaise);
   	  };
 
       var bet_size = function(game_state) {
