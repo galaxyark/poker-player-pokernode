@@ -46,10 +46,7 @@ module.exports = {
 
     this.getRanking(game_state, function(body) {
       console.log('bet');
-
-      if (!body) {
-        bet(0);
-      }
+      cosnole.log(body);
 
       var next_move = function(rank){
   	  	if (rank >= 7) {
@@ -60,6 +57,7 @@ module.exports = {
   	  		return 2;
   	  	}
   	  };
+
   	  var fold = function (bet) {
   	  	bet(0);
   	  };
@@ -73,6 +71,10 @@ module.exports = {
   	  	console.log("Current bet_size is " + minRaise);
   	  	bet(minRaise);
   	  };
+
+      if (!body) {
+        check();
+      }
 
       var customRank = next_move(body.rank);
       console.log("Rank is " + body.rank + ", Custom ranking is " + customRank);
