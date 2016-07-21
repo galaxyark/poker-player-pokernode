@@ -8,7 +8,7 @@ module.exports = {
   ranking: [],
 
   getRanking: function(game_state, callback) {
-    var cards = this.holdCards().hole_cards.concat(game_state.community_cards);
+    var cards = this.holdCards(game_state).hole_cards.concat(game_state.community_cards);
     var request = require('request');
     var self = this;
 
