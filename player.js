@@ -47,7 +47,7 @@ module.exports = {
 
 
   //Yang
-  betsize: function(game_state, rank){
+  bet_size: function(game_state, rank){
 
   }
 };
