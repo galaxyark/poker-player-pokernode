@@ -49,7 +49,7 @@ module.exports = {
       console.log(body);
 
       var next_move = function(rank){
-        var ourCards = this.holdCards(game_state);
+        var ourCards = game_state.players[game_state.in_action].hole_cards;
         if (game_state.community_cards.length === 0) {
           rank = rank2cards(ourCards);
         }
