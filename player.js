@@ -9,6 +9,8 @@ module.exports = {
 
   getRanking: function(game_state, callback) {
     var cards = this.holdCards(game_state).concat(game_state.community_cards);
+
+    console.log(cards);
     var request = require('request');
     var self = this;
 
