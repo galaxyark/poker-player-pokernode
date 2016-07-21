@@ -73,7 +73,7 @@ module.exports = {
   	  };
 
       if (!body) {
-        check();
+        check(game_state, bet);
       }
 
       var customRank = next_move(body.rank);
