@@ -174,7 +174,7 @@ function mostAggressive(game_state) {
         }
       }
     }
-  })
+  });
   return strongest;
 }
 
