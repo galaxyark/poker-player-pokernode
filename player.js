@@ -68,9 +68,8 @@ module.exports = {
 	  	console.log("Current bet_size is " + minRaise);
 	  	bet(minRaise);
 	  };
-      var rank = body.rank;
-      var customRank = next_move(rank);
-      console.log("Rank is " + rank + ", Custom ranking is " + customRank);
+      var customRank = next_move(body.rank);
+      console.log("Rank is " + body.rank + ", Custom ranking is " + customRank);
       switch(customRank) {
       	case 0:  // we have good hand
   			raise(game_state, bet);
