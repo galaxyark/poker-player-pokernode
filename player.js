@@ -27,7 +27,7 @@ module.exports = {
     }, function(error, response, body) {
       self.ranking = body;
       console.log(body);
-      callback(body);
+      callback(JSON.parse(body));
     });
   },
 
